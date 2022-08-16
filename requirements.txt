@@ -1,4 +1,5 @@
 pandas
+snscrape
 streamlit
 datetime
 pillow
