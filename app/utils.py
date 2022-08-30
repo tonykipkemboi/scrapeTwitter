@@ -56,6 +56,9 @@ def data_cleaner(payload: list) -> pd.DataFrame:
     # create a column with links to the tweet using url + tweet_id
     df['tweet_url'] = [
         f'https://twitter.com/i/web/status/{id}' for id in df['tweet_id']]
+    
+    # add @ before usernames
+    df['username'] = ['@'+name for name in tweets['username']]
 
     # set date as index
     df = df.set_index('date')
