@@ -39,10 +39,10 @@ def main():
 
 
 if __name__ == '__main__':
-    st.set_page_config(layout="wide", page_icon="💾",
+    st.set_page_config(layout="wide", page_icon="🤖",
                        page_title="Twitter Scrapper App")
 
-    st.title("🤖 TweetScrape App: Keyword Query")
+    st.title("🤖 TweetScrape App")
     st.write(
         "This app lets you scrape tweets by searching for keywords present in target tweets..."
     )
