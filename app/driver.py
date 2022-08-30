@@ -9,11 +9,11 @@ def main():
 
     # ask user for input phrase
     phrase = st.text_input(
-        'Enter phrase or text to scarpe from Twitter', 'write something, will you...')
+        'Enter phrase or text to scrape from Twitter', 'Type here...')
 
     # beware that a large number will result in a slower scrape; minimum of 10
     max_results = st.number_input(
-        'Enter maximum number of tweets to search return', min_value=10)
+        'Enter maximum number of tweets to search return', min_value=100)
 
     # enter date range
     # today = datetime.date.today()
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     st.set_page_config(layout="wide", page_icon="💾",
                        page_title="Twitter Scrapper App")
 
-    st.title("🤖 TweetWord App: Keyword Query")
+    st.title("🤖 TweetScrape App: Keyword Query")
     st.write(
         "This app lets you scrape tweets by searching for keywords present in target tweets..."
     )
