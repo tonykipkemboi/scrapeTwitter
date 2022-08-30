@@ -58,7 +58,7 @@ def data_cleaner(payload: list) -> pd.DataFrame:
         f'https://twitter.com/i/web/status/{id}' for id in df['tweet_id']]
     
     # add @ before usernames
-    df['username'] = ['@'+name for name in tweets['username']]
+    df['username'] = ['@'+name for name in df['username']]
 
     # set date as index
     df = df.set_index('date')
