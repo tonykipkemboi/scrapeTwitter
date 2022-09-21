@@ -61,12 +61,15 @@ def data_cleaner(payload: list) -> pd.DataFrame:
     df['username'] = ['@'+name for name in df['username']]
 
     # convert to EST time
-    df['date'] = pd.to_datetime(df['date'], errors='coerce')
-    df['date'] = df['date'].dt.tz_convert('US/Eastern')
-    df['date'] = df['date'].dt.strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        df['date'] = pd.to_datetime(df['date'], errors='coerce')
+        df['date'] = df['date'].dt.tz_convert('US/Eastern')
+        df['date'] = df['date'].dt.strftime("%Y-%m-%d %H:%M:%S")
 
-    # drop index column
-    df = df.reset_index(drop=True)
+        # drop index column
+        df = df.reset_index(drop=True)
+    except:
+        pass
 
     return df
 
