@@ -28,7 +28,14 @@ def main():
                                 start=start_date, end=end_date)
             cleaner = data_cleaner(search)
             selection = aggrid_interactive_table(df=cleaner)
+           
+            # interactive table
+            if selection:
+                st.write('You selected:')
+                st.json(selection['selected_rows'])
+                
             csv = to_csv(cleaner)
+            
             # download data in csv format
             st.download_button(
                 "Download CSV",
@@ -37,10 +44,6 @@ def main():
                 "text/csv",
                 key='download-csv'
             )
-            # interactive table
-            if selection:
-                st.write('You selected:')
-                st.json(selection['selected_rows'])
 
     else:
         st.error('Error: End date must be less than todays date.')
