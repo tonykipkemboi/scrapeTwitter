@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 import pandas as pd
 import streamlit as st
 
@@ -35,7 +35,7 @@ def get_tweets(phrase: str, max: int,  start: date, end: date) -> list:
     return output
 
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def data_cleaner(payload: list) -> pd.DataFrame:
     """Takes in a list of tweets and converts them into a dataframe.
 
@@ -56,12 +56,17 @@ def data_cleaner(payload: list) -> pd.DataFrame:
     # create a column with links to the tweet using url + tweet_id
     df['tweet_url'] = [
         f'https://twitter.com/i/web/status/{id}' for id in df['tweet_id']]
-    
+
     # add @ before usernames
     df['username'] = ['@'+name for name in df['username']]
 
-    # set date as index
-#     df = df.set_index('date')
+    # convert to EST time
+    df['date'] = pd.to_datetime(df['date'], errors='coerce')
+    df['date'] = df['date'].dt.tz_convert('US/Eastern')
+    df['date'] = df['date'].dt.strftime("%Y-%m-%d %H:%M:%S")
+
+    # drop index column
+    df = df.reset_index(drop=True)
 
     return df
 
@@ -69,7 +74,7 @@ def data_cleaner(payload: list) -> pd.DataFrame:
 @st.cache
 def to_csv(df):
     """Convert df to csv"""
-    
+
     return df.to_csv().encode('utf-8')
 
 
