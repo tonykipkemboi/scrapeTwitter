@@ -5,6 +5,8 @@ I got tired of searching tweets using `Twitter` search and decided to build out 
 
 `FYI: This is roughly put together but does the job for what I needed.`
 
+The DataFrame UI community package by [aggrid](https://github.com/PablocFonseca/streamlit-aggrid)
+
 ### Usage
 
 - The app is deployed on Streamlit [here](https://tonykipkemboi-scrapetwitter-appdriver-qevmgf.streamlitapp.com/).
