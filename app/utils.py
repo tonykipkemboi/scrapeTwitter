@@ -61,7 +61,7 @@ def data_cleaner(payload: list) -> pd.DataFrame:
     df['username'] = ['@'+name for name in df['username']]
 
     # set date as index
-    df = df.set_index('date')
+#     df = df.set_index('date')
 
     return df
 
