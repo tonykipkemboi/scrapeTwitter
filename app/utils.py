@@ -66,6 +66,13 @@ def data_cleaner(payload: list) -> pd.DataFrame:
     return df
 
 
+@st.cache
+def to_csv(df):
+    """Convert df to csv"""
+    
+    return df.to_csv().encode('utf-8')
+
+
 def aggrid_interactive_table(df: pd.DataFrame):
     """Creates an st-aggrid interactive table based on a dataframe.
 
