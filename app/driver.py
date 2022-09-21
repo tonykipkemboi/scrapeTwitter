@@ -13,7 +13,7 @@ def main():
 
     # beware that a large number will result in a slower scrape; minimum of 10
     max_results = st.number_input(
-        'Enter maximum number of tweets to search return', min_value=100)
+        'Enter maximum number of tweets to search return', min_value=10)
 
     # enter date range
     # today = datetime.date.today()
