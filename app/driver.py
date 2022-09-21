@@ -28,7 +28,15 @@ def main():
                                 start=start_date, end=end_date)
             cleaner = data_cleaner(search)
             selection = aggrid_interactive_table(df=cleaner)
-
+            csv = to_csv(cleaner)
+            # download data in csv format
+            st.download_button(
+                "Download CSV",
+                csv,
+                "file.csv",
+                "text/csv",
+                key='download-csv'
+            )
             # interactive table
             if selection:
                 st.write('You selected:')
