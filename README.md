@@ -1,6 +1,8 @@
 # Scrape Tweets by Searching Keywords using Snspcrape 
 This is a simple Tweet Search App built with `python` + `snscrape module` + `Streamlit`.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tonykipkemboi-scrapetwitter-appdriver-qevmgf.streamlitapp.com)
+
 I got tired of searching tweets using `Twitter` search and decided to build out a standalone app that I can query for `keywords/phrases/hashtags/usernames...e.t.c.` and subsequently download the data into a `csv` file for further custom analysis
 
 `FYI: This is roughly put together but does the job for what I needed.`
